@@ -1,0 +1,23 @@
+import db from '../db/connect.js'
+import { DataTypes } from 'sequelize'
+import User from './user.model.js'
+import Hotel from './hotel.model.js'
+
+export const Review = db.define('review', {
+    rating: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    comment: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    }
+})
+
+User.hasMany(Review)
+Review.belongsTo(User)
+
+Hotel.hasMany(Review)
+Review.belongsTo(Hotel)
+
+export default Review
