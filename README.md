@@ -4,6 +4,40 @@ This project provides a complete API for handling users, cities, hotels, images,
 
 ---
 
+### 📊 Database Architecture
+
+```mermaid
+erDiagram
+    USER ||--o{ BOOKING : "makes"
+    USER ||--o{ REVIEW : "writes"
+    HOTEL ||--o{ BOOKING : "receives"
+    HOTEL ||--o{ REVIEW : "has"
+    HOTEL ||--o{ IMAGE : "displays"
+    CITY ||--o{ HOTEL : "contains"
+
+    USER {
+        string firstName
+        string lastName
+        string email
+        string password
+    }
+    HOTEL {
+        string name
+        text description
+        float price
+        float averageRating
+    }
+    BOOKING {
+        date checkIn
+        date checkOut
+    }
+    REVIEW {
+        int rating
+        text comment
+    }
+```
+---
+
 ## 🌐 Deployment
 
 ## 🚀 Backend: Server online with Render
@@ -30,53 +64,106 @@ This project was designed to:
 
 ---
 
+## 🚀 Key Features & Implementation Details
+- ✅ **Full API Coverage (25 Endpoints):** 100% of required endpoints implemented, including private and public routes, ensuring a complete management system for Users, Cities, Hotels, Images, Bookings, and Reviews.
+- 🧪 **Professional Testing Suite:** Robust implementation of **Jest** and **Supertest**, with automated tests for every endpoint to guarantee reliability and prevent regressions in the business logic.
+- 🔐 **Advanced Authentication & Security:**
+  - User login system with **JWT (JSON Web Tokens)**.
+  - Protected routes requiring valid tokens for sensitive operations (Bookings, Reviews, User management).
+  - Password hashing using **bcrypt** and security headers with **Helmet**.
+- 📂 **Multimedia Management:** Integrated **Cloudinary** for professional image hosting and management, handled via **Multer** for seamless file uploads.
+- 📊 **Smart Data Processing:**
+  - **Dynamic Rating Calculation:** Automatically generates an `average` field for hotels by aggregating scores from all related reviews.
+  - **Advanced Querying:** Smart search for hotels by `name` and `cityId`.
+  - **Optimized Pagination:** Implemented `offset` and `perPage` logic for reviews to ensure high performance and scalability.
+- 🛠️ **Clean Architecture & Reliable Workflows:**
+  - **Centralized Error Handling** for predictable API responses.
+  - **Relational Database Modeling** with Sequelize and PostgreSQL, ensuring data integrity and strictly enforcing update restrictions (e.g., preventing modification of `userId` in bookings).
+
+---
+
+## 📊 Project Architecture Summary
+- **Backend:** Node.js & Express.
+- **Database:** PostgreSQL with Sequelize ORM.
+- **Storage:** Cloudinary API.
+- **Documentation:** Postman (Online).
+- **Deployment:** Render.
+
+---
+
+## 🧪 Testing Suite
+
+Quality assurance is a priority in this project. A comprehensive test suite was developed using **Jest** and **Supertest** to validate every layer of the API.
+
+* **Total Coverage:** 25/25 mandatory endpoints tested.
+* **Scope:** * **Unit Tests:** Validating individual model logic and helper functions.
+    * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database.
+    * **Security Tests:** Verifying JWT authorization and restricted access to private routes.
+
+To run the tests locally:
+```bash
+npm test
+```
+
+---
+
+## 💻 Tech Stack
+| Backend Tools | Database       | Security & Middleware | Utilities   |
+|---------------|----------------|-----------------------|-------------|
+| Node.js       | PostgreSQL     | Helmet                | bcrypt      |
+| Express       | Sequelize      | CORS                  | uuid        |
+| Morgan        | pg/pg-hstore   | JWT                   | multer      |
+| Cloudinary    |                |                       | streamifier |
+
+---
+
 ## 🧪 API Coverage
 The following endpoints are implemented: 
 ### Users 
 
-- `GET /users` – Retrieve all users (private) 
-- `POST /users` – Create a new user (public)
-- `DELETE /users/:id` – Delete a user by ID (private)
-- `PUT /users/:id` – Update a user by ID (private)
-- `POST /users/login` – User login (public)
+- `GET /users` – Retrieve all users (private) ✅
+- `POST /users` – Create a new user (public) ✅
+- `DELETE /users/:id` – Delete a user by ID (private) ✅
+- `PUT /users/:id` – Update a user by ID (private) ✅
+- `POST /users/login` – User login (public) ✅
   
 ### Cities
 
-- `GET /cities` – Retrieve all cities (public)
-- `POST /cities` – Create a new city (private)
-- `DELETE /cities/:id` – Delete a city by ID (private)
-- `PUT /cities/:id` – Update a city by ID (private)
+- `GET /cities` – Retrieve all cities (public) ✅
+- `POST /cities` – Create a new city (private) ✅
+- `DELETE /cities/:id` – Delete a city by ID (private) ✅
+- `PUT /cities/:id` – Update a city by ID (private) ✅
 
 ### Hotels
 
-- `GET /hotels` – Retrieve all hotels (public)
-- Supports queries: `name`, `cityId` Example: `/hotels?name=Four%20Seasons&cityId=1`
-- Includes field `average` with average rating from reviews.
-- `GET /hotels/:id` – Retrieve hotel by ID (public)
-- `POST /hotels` – Create a new hotel (private)
-- `DELETE /hotels/:id` – Delete a hotel by ID (private)
-- `PUT /hotels/:id` – Update a hotel by ID (private)
+- `GET /hotels` – Retrieve all hotels (public) ✅
+- Supports queries: `name`, `cityId` Example: `/hotels?name=Four%20Seasons&cityId=1` 
+- Includes field `average` with average rating from reviews. 
+- `GET /hotels/:id` – Retrieve hotel by ID (public) ✅
+- `POST /hotels` – Create a new hotel (private) ✅
+- `DELETE /hotels/:id` – Delete a hotel by ID (private) ✅
+- `PUT /hotels/:id` – Update a hotel by ID (private) ✅
 
 ### Images 
 
-- `GET /images` – Retrieve all images (private)
-- `POST /images` – Upload a new image (private)
-- `DELETE /images/:id` – Delete an image by ID (private)
+- `GET /images` – Retrieve all images (private) ✅
+- `POST /images` – Upload a new image (private) ✅
+- `DELETE /images/:id` – Delete an image by ID (private) ✅
 
 ### Bookings 
 
-- `GET /bookings` – Retrieve bookings of logged-in user (private)
-- `POST /bookings` – Create a booking (private, userId = logged-in user)
-- `DELETE /bookings/:id` – Delete a booking (private)
-- `PUT /bookings/:id` – Update booking dates (private, only `checkIn` and `checkOut`)
+- `GET /bookings` – Retrieve bookings of logged-in user (private) ✅
+- `POST /bookings` – Create a booking (private, userId = logged-in user) ✅
+- `DELETE /bookings/:id` – Delete a booking (private) ✅
+- `PUT /bookings/:id` – Update booking dates (private, only `checkIn` and `checkOut`) ✅
 
 ### Reviews 
-- `GET /reviews` – Retrieve all reviews (public)
-- Supports queries: `hotelId`, `offset`, `perPage` for pagination.
-- Example: `/reviews?hotelId=1&offset=0&perPage=10`
-- `POST /reviews` – Create a review (private, userId = logged-in user)
-- `DELETE /reviews/:id` – Delete a review (private)
-- `PUT /reviews/:id` – Update review rating/comment (private, userId and hotelId cannot be updated)
+- `GET /reviews` – Retrieve all reviews (public) ✅
+- Supports queries: `hotelId`, `offset`, `perPage` for pagination. 
+- Example: `/reviews?hotelId=1&offset=0&perPage=10` 
+- `POST /reviews` – Create a review (private, userId = logged-in user) ✅
+- `DELETE /reviews/:id` – Delete a review (private) ✅
+- `PUT /reviews/:id` – Update review rating/comment (private, userId and hotelId cannot be updated) ✅
 
 ---
 
@@ -89,15 +176,6 @@ The following endpoints are implemented:
 }
 ```
 
----
-
-## 💻 Tech Stack
-| Backend Tools | Database       | Security & Middleware | Utilities   |
-|---------------|----------------|-----------------------|-------------|
-| Node.js       | PostgreSQL     | Helmet                | bcrypt      |
-| Express       | Sequelize      | CORS                  | uuid        |
-| Morgan        | pg/pg-hstore   | JWT                   | multer      |
-| Cloudinary    |                |                       | streamifier |
 ---
 
 ## 🗂️ Project Structure
@@ -161,7 +239,7 @@ The following endpoints are implemented:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/Clic-stack/BookingApp.git
+   git clone https://github.com/Clic-stack/Booking-App.git
    ```
 2. Install dependencies:
    ```bash
