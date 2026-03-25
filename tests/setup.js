@@ -1,16 +1,20 @@
-import sequelize from '../src/db/connect.js'
+import sequelize from '../src/db/connect.js';
 
 beforeAll(async () => {
     try {
-        // Usamos alter: true para que la DB en Neon siempre coincida con tus modelos
-        await sequelize.sync({ alter: true, force: false })
-        console.log('Database synced successfully for testing.')
+        // alter: true sincroniza tablas sin borrar datos
+        await sequelize.sync({ alter: true, force: false });
+        
+        // OPCIONAL: Aquí podrías insertar un usuario de prueba con código
+        // si tus tests de login fallan porque la tabla está vacía.
+        
+        console.log('✅ DB conectada y sincronizada para tests');
     } catch (error) {
-        console.error('Unable to sync database:', error)
-        process.exit(1) // Detiene los tests si no hay conexión
+        console.error('❌ Error en el setup de la DB:', error);
+        process.exit(1);
     }
-}, 30000) 
+}, 30000); // Timeout largo para la conexión inicial
 
 afterAll(async () => {
-    await sequelize.close()
-})
+    await sequelize.close();
+});
