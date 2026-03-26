@@ -1,5 +1,9 @@
 ## 🏨 Booking App
+
+> [!TIP]
+> **Quick Setup Note:** This project includes default values (*fallbacks*) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out-of-the-box without extra security overhead.
 [![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
+
 A backend system built with Express, Sequelize, and PostgreSQL to manage hotel reservations. 
 This project provides a complete API for handling users, cities, hotels, images, bookings, and reviews, ensuring a secure, scalable, and user-friendly architecture.
 
@@ -150,9 +154,11 @@ The following endpoints are implemented:
 
 ### Images 
 
-- `GET /images` – Retrieve all images (private) ✅
-- `POST /images` – Upload a new image (private) ✅
-- `DELETE /images/:id` – Delete an image by ID (private) ✅
+- `GET /images` – Retrieve all images (private) ✅*
+- `POST /images` – Upload a new image (private) ✅*
+- `DELETE /images/:id` – Delete an image by ID (private) ✅*
+
+  *Validated through manual functional testing (Postman)
 
 ### Bookings 
 
@@ -289,7 +295,12 @@ Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, 
 🔽 **Versión en Español** 🔽
 
 ## 🏨 Booking App
+
+> [!TIP]
+> **Nota de configuración rápida:** Este proyecto incluye valores por defecto (*fallbacks*) para la `JWT_SECRET` en entornos de desarrollo y pruebas. Esto facilita un despliegue rápido y garantiza que la suite de tests se ejecute correctamente de forma inmediata, sin configuraciones de seguridad adicionales.
 [![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
+
+
 Sistema backend construído con Express, Sequelize y PostgreSQL para el manejo de reservaciones de hotel.
 Este proyecto proporciona una API robusta y completa para el manejo de usuarios, ciudades, hoteles, imágenes, reservaciones y reseñas. Asegurando seguridad, escalabilidad, pero por sobre todas las cosas una arquitectura que sea amigable con el usuario.
 
@@ -439,9 +450,11 @@ Los siguientes endpoints fueron implementados:
 
 ### Imágenes 
 
-- `GET /images` – Obtiene todas las imágenes (privado) ✅
-- `POST /images` – Crea una nueva imagen (privado) ✅
-- `DELETE /images/:id` – Elimina una imagen por ID (privado) ✅
+- `GET /images` – Obtiene todas las imágenes (privado) ✅*
+- `POST /images` – Crea una nueva imagen (privado) ✅*
+- `DELETE /images/:id` – Elimina una imagen por ID (privado) ✅*
+
+  *Validado mediante pruebas funcionales manuales (Postman)
 
 ### Reservaciones 
 
