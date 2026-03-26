@@ -1,4 +1,5 @@
 ## 🏨 Booking App
+[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
 A backend system built with Express, Sequelize, and PostgreSQL to manage hotel reservations. 
 This project provides a complete API for handling users, cities, hotels, images, bookings, and reviews, ensuring a secure, scalable, and user-friendly architecture.
 
@@ -95,10 +96,13 @@ This project was designed to:
 
 Quality assurance is a priority in this project. A comprehensive test suite was developed using **Jest** and **Supertest** to validate every layer of the API.
 
-* **Total Coverage:** 25/25 mandatory endpoints tested.
-* **Scope:** * **Unit Tests:** Validating individual model logic and helper functions.
-    * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database.
+* **Total Coverage:** 22/25 mandatory endpoints tested (100% Core Business Logic).
+* **CI/CD Pipeline:** ✅ Automated workflows powered by GitHub Actions. Every `push` or `pull request` triggers the full test suite to guarantee stability in both production and development environments.
+* **Scope:** * 
+    * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database for Users, Cities, Hotels, Bookings, and Reviews.
     * **Security Tests:** Verifying JWT authorization and restricted access to private routes.
+ 
+      **Note:** Image upload endpoints are verified through manual functional testing via Postman to optimize CI/CD performance and third-party storage usage.
 
 To run the tests locally:
 ```bash
@@ -256,6 +260,9 @@ The following endpoints are implemented:
   JWT_SECRET=your_secret_key
   CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
   ```
+
+  💡 Quick Setup Note: This project includes default values (fallbacks) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out-of-the-box without extra security overhead.
+  
 4. Run local server to verify correct configurations
    ```bash
     npm run dev
@@ -282,6 +289,7 @@ Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, 
 🔽 **Versión en Español** 🔽
 
 ## 🏨 Booking App
+[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
 Sistema backend construído con Express, Sequelize y PostgreSQL para el manejo de reservaciones de hotel.
 Este proyecto proporciona una API robusta y completa para el manejo de usuarios, ciudades, hoteles, imágenes, reservaciones y reseñas. Asegurando seguridad, escalabilidad, pero por sobre todas las cosas una arquitectura que sea amigable con el usuario.
 
@@ -377,10 +385,13 @@ Este proyecto fue diseñado para:
 
 El aseguramiento en la calidad es una prioiridad en este proyecto. Es por ello que se desarrolló una suite integral de tests usando **Jest** y **Supertest** para validar cada capa dentro de la API.
 
-* **Cobertura Total:** 25/25 endpoints testeados obligatoriamente.
-* **Alcance:** * **Pruebas Unitarias:** Validando individualmente la lógica del módelo y las funciones auxiliares.
-    * **Integración de tests:** Asegurando el flujo de interacción entre rutas, controladores y la base de datos en PostgreSQL.
-    * **Seguridad en los Tests:** Verificando autorización con JWT y restringiendo el acceso a las rutas privadas.
+* **Cobertura Total:** 22/25 endpoints testeados (100% de la lógica de negocio principal).
+* **CI/CD Pipeline:** ✅ Flujos de trabajo automatizados mediante GitHub Actions. Cada `push` o `pull request` activa la suite completa de pruebas para garantizar la estabilidad tanto en entornos de producción como de desarrollo.
+* **Alcance:** * 
+    * **Pruebas de Integración:** Asegurando una interacción fluida entre rutas, controladores y la base de datos PostgreSQL para Usuarios, Ciudades, Hoteles, Reservaciones y Reseñas.
+    * **Pruebas de Seguridad:** Verificación de autorización con JWT y acceso restringido a rutas privadas.
+ 
+      Nota: Los endpoints de carga de imágenes se verifican mediante pruebas funcionales manuales a través de Postman para optimizar el rendimiento del CI/CD y el uso del almacenamiento de terceros.
 
 Para correr los tests localmente:
 ```bash
@@ -537,6 +548,9 @@ Los siguientes endpoints fueron implementados:
   JWT_SECRET=your_secret_key
   CLOUDINARY_URL=cloudinary://api_key:api_secret@cloud_name
   ```
+
+  💡 Nota de configuración rápida: El proyecto incluye valores por defecto (fallbacks) para la `JWT_SECRET` en entornos de desarrollo y prueba. Esto facilita un despliegue rápido y permite que la suite de tests funcione de inmediato sin configuraciones complejas de seguridad adicionales.
+  
 4. Corre el servidor locar para verificar que las configuraciones sean correctas:
    ```bash
     npm run dev
