@@ -6,6 +6,6 @@ export const env = {
   ENV,
   PORT: process.env.PORT || 3000,
   DATABASE_URL: process.env.DATABASE_URL || '',
-  SECRET_KEY: process.env.SECRET_KEY,
+  SECRET_KEY: process.env.SECRET_KEY || 'clave_maestra_de_emergencia',
   EXPIRES_IN: process.env.EXPIRES_IN
 }
