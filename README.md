@@ -102,7 +102,7 @@ Quality assurance is a priority in this project. A comprehensive test suite was 
 
 * **Total Coverage:** 22/25 mandatory endpoints tested (100% Core Business Logic).
 * **CI/CD Pipeline:** ✅ Automated workflows powered by GitHub Actions. Every `push` or `pull request` triggers the full test suite to guarantee stability in both production and development environments.
-* **Scope:** * 
+* **Scope:** 
     * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database for Users, Cities, Hotels, Bookings, and Reviews.
     * **Security Tests:** Verifying JWT authorization and restricted access to private routes.
  
@@ -398,7 +398,7 @@ El aseguramiento en la calidad es una prioiridad en este proyecto. Es por ello q
 
 * **Cobertura Total:** 22/25 endpoints testeados (100% de la lógica de negocio principal).
 * **CI/CD Pipeline:** ✅ Flujos de trabajo automatizados mediante GitHub Actions. Cada `push` o `pull request` activa la suite completa de pruebas para garantizar la estabilidad tanto en entornos de producción como de desarrollo.
-* **Alcance:** * 
+* **Alcance:**  
     * **Pruebas de Integración:** Asegurando una interacción fluida entre rutas, controladores y la base de datos PostgreSQL para Usuarios, Ciudades, Hoteles, Reservaciones y Reseñas.
     * **Pruebas de Seguridad:** Verificación de autorización con JWT y acceso restringido a rutas privadas.
  
