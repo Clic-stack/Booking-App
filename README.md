@@ -1,4 +1,4 @@
-## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Tests-Real--World%20Integration-003366?style=for-the-badge&logo=postgresql&logoColor=gold)](https://github.com/Clic-stack/Booking-App/actions)</p> 
+## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Tests-Real--World%20Integration-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=010B13)](https://github.com/Clic-stack/Booking-App/actions)</p>
 
 > [!TIP]
 > **Quick Setup Note:** This project includes default values (*fallbacks*) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out-of-the-box without extra security overhead.
@@ -6,6 +6,36 @@
 
 A backend system built with Express, Sequelize, and PostgreSQL to manage hotel reservations. 
 This project provides a complete API for handling users, cities, hotels, images, bookings, and reviews, ensuring a secure, scalable, and user-friendly architecture.
+
+---
+
+## 🌐 Deployment
+
+## 🚀 Backend: Server online with Render
+🔗 https://booking-app-b5o8.onrender.com
+
+---
+
+## 📄 BookingApp: Documentation online with Postman
+🔗 https://documenter.getpostman.com/view/48309056/2sBXVZnDx7
+
+---
+
+## 🌐 GitHub Repository
+🔗 https://github.com/Clic-stack/Booking-App
+
+---
+
+## 🟢 Technical Quality Assurance (QA) & Automation
+
+**What does the "passing" badge at the beginning of this project mean?**
+In a professional environment, it is not enough for an application to simply "work"; it must be reliable.
+This project implements **Real-World Integration Tests**. This means that every time a code change is made, an automated surveillance system that ensures every component (Database, Security, and Functions) operates correctly, even when handling high volumes of information.
+
+- **Green Badge (Passing):** Indicates the code is solid and secure. It has passed all quality inspections and is ready for use in a real-world production environment without unexpected errors.
+- **Red Badge (Failing):** Acts as an emergency brake. If a technical error is detected, the system automatically blocks any updates before they can affect the end user or compromise data integrity.
+
+**In summary:** This badge is your guarantee that the software has been built under professional standards, prioritizing stability and data protection at all times.
 
 ---
 
@@ -41,22 +71,6 @@ erDiagram
         text comment
     }
 ```
----
-
-## 🌐 Deployment
-
-## 🚀 Backend: Server online with Render
-🔗 https://booking-app-b5o8.onrender.com
-
----
-
-## 📄 BookingApp: Documentation online with Postman
-🔗 https://documenter.getpostman.com/view/48309056/2sBXVZnDx7
-
----
-
-## 🌐 GitHub Repository
-🔗 https://github.com/Clic-stack/Booking-App
 ---
 
 ## 🎯 Project Goals
@@ -294,7 +308,8 @@ Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, 
 
 🔽 **Versión en Español** 🔽
 
-## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Pruebas-Integración%20Real-003366?style=for-the-badge&logo=postgresql&logoColor=gold)](https://github.com/Clic-stack/Booking-App/actions)</p> 
+
+## 🏨 Booking App <br/> <p align="right">[![Pruebas de Integración de Escenario Real](https://img.shields.io/badge/Pruebas-Integración%20de%20Escenario%20Real-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=000000)](https://github.com/Clic-stack/Booking-App/actions)</p> 
 
 > [!TIP]
 > **Nota de configuración rápida:** Este proyecto incluye valores por defecto (*fallbacks*) para la `JWT_SECRET` en entornos de desarrollo y pruebas. Esto facilita un despliegue rápido y garantiza que la suite de tests se ejecute correctamente de forma inmediata, sin configuraciones de seguridad adicionales.
@@ -303,6 +318,35 @@ Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, 
 
 Sistema backend construído con Express, Sequelize y PostgreSQL para el manejo de reservaciones de hotel.
 Este proyecto proporciona una API robusta y completa para el manejo de usuarios, ciudades, hoteles, imágenes, reservaciones y reseñas. Asegurando seguridad, escalabilidad, pero por sobre todas las cosas una arquitectura que sea amigable con el usuario.
+
+---
+
+## 🌐 Despliegue
+
+## 🚀 Backend: Servidor en línea con Render
+🔗 https://booking-app-b5o8.onrender.com
+
+---
+
+## 📄 BookingApp: Documentación en línea con Postman
+🔗 https://documenter.getpostman.com/view/48309056/2sBXVZnDx7
+
+---
+
+## 🌐 Repositorio en GitHub
+🔗 https://github.com/Clic-stack/Booking-App
+
+---
+
+## 🟢 Garantía de Calidad Técnica (QA) y Automatización
+
+**¿Qué significa el sello "passing" al inicio de este proyecto?**
+En un entorno profesional, no basta con que una aplicación simplemente "funcione"; debe ser confiable.
+Este proyecto implementa **Pruebas de Integración de Escenario Real**. Esto significa que cada vez que se realiza un cambio en el código, un sistema de vigilancia automática garantiza que cada componente (Base de Datos, Seguridad y Funciones) opere correctamente, incluso al manejar altos volúmenes de información.
+- **Sello Verde (Passing):** Indica que el código es sólido y seguro. Ha superado todas las inspecciones de calidad y está listo para ser utilizado en un entorno de producción real sin errores inesperados.
+- **Sello Rojo (Failing):** Actúa como un freno de emergencia. Si se detecta un error técnico, el sistema bloquea automáticamente cualquier actualización antes de que pueda afectar al usuario final o comprometer la integridad de los datos.
+
+**En resumen:** Este sello es tu garantía de que el software ha sido construido bajo estándares profesionales, priorizando la estabilidad y la protección de los datos en todo momento.
 
 ---
 
@@ -338,22 +382,7 @@ erDiagram
         text comment
     }
 ```
----
 
-## 🌐 Despliegue
-
-## 🚀 Backend: Servidor en línea con Render
-🔗 https://booking-app-b5o8.onrender.com
-
----
-
-## 📄 BookingApp: Documentación en línea con Postman
-🔗 https://documenter.getpostman.com/view/48309056/2sBXVZnDx7
-
----
-
-## 🌐 Repositorio en GitHub
-🔗 https://github.com/Clic-stack/Booking-App
 ---
 
 ## 🎯 Objetivos del Proyecto
