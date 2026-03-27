@@ -1,4 +1,4 @@
-## 🏨 Booking App
+## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Tests-Real--World%20Integration-003366?style=for-the-badge&logo=postgresql&logoColor=gold)](https://github.com/Clic-stack/Booking-App/actions)</p> 
 
 > [!TIP]
 > **Quick Setup Note:** This project includes default values (*fallbacks*) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out-of-the-box without extra security overhead.
@@ -101,7 +101,7 @@ This project was designed to:
 Quality assurance is a priority in this project. A comprehensive test suite was developed using **Jest** and **Supertest** to validate every layer of the API.
 
 * **Total Coverage:** 22/25 mandatory endpoints tested (100% Core Business Logic).
-* **CI/CD Pipeline:** ✅ Automated workflows powered by GitHub Actions. Every `push` or `pull request` triggers the full test suite to guarantee stability in both production and development environments.
+* **CI/CD Pipeline:** ✅ Automated **Real-World Integration Tests** powered by GitHub Actions, validating live connections with PostgreSQL. Every `push` or `pull request` triggers the full test suite to guarantee stability in both production and development environments.
 * **Scope:** 
     * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database for Users, Cities, Hotels, Bookings, and Reviews.
     * **Security Tests:** Verifying JWT authorization and restricted access to private routes.
@@ -294,7 +294,7 @@ Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, 
 
 🔽 **Versión en Español** 🔽
 
-## 🏨 Booking App
+## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Pruebas-Integración%20Real-003366?style=for-the-badge&logo=postgresql&logoColor=gold)](https://github.com/Clic-stack/Booking-App/actions)</p> 
 
 > [!TIP]
 > **Nota de configuración rápida:** Este proyecto incluye valores por defecto (*fallbacks*) para la `JWT_SECRET` en entornos de desarrollo y pruebas. Esto facilita un despliegue rápido y garantiza que la suite de tests se ejecute correctamente de forma inmediata, sin configuraciones de seguridad adicionales.
@@ -397,7 +397,7 @@ Este proyecto fue diseñado para:
 El aseguramiento en la calidad es una prioiridad en este proyecto. Es por ello que se desarrolló una suite integral de tests usando **Jest** y **Supertest** para validar cada capa dentro de la API.
 
 * **Cobertura Total:** 22/25 endpoints testeados (100% de la lógica de negocio principal).
-* **CI/CD Pipeline:** ✅ Flujos de trabajo automatizados mediante GitHub Actions. Cada `push` o `pull request` activa la suite completa de pruebas para garantizar la estabilidad tanto en entornos de producción como de desarrollo.
+* **CI/CD Pipeline:** ✅ Flujos de trabajo automatizados con **Pruebas de Integración Real**mediante GitHub Actions, validando la interacción real con la base de datos PostgreSQL. Cada `push` o `pull request` activa la suite completa de pruebas para garantizar la estabilidad tanto en entornos de producción como de desarrollo.
 * **Alcance:**  
     * **Pruebas de Integración:** Asegurando una interacción fluida entre rutas, controladores y la base de datos PostgreSQL para Usuarios, Ciudades, Hoteles, Reservaciones y Reseñas.
     * **Pruebas de Seguridad:** Verificación de autorización con JWT y acceso restringido a rutas privadas.
