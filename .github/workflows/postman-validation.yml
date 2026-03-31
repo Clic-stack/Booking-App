@@ -1,0 +1,28 @@
+name: "API Contract: Postman Validation"
+
+on:
+  push:
+    branches: [ main, master ]
+  # También puedes activarlo manualmente desde GitHub
+  workflow_dispatch: 
+
+jobs:
+  postman-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Postman Collection
+        run: |
+          newman run BOOKING-APP/booking-app.json \
+          --reporters cli \
+          --env-var "baseUrl=https://booking-app-b5o8.onrender.com"
