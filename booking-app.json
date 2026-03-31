@@ -1,0 +1,912 @@
+{
+  "info": {
+    "_postman_id": "e65f04f9-7473-4d84-8d0c-bb6fc332f404",
+    "name": "Booking App",
+    "description": "# **📖 Booking App**\n\nThe **Booking App** is a backend system designed to manage hotel reservations with a secure, scalable, and user-friendly architecture. It provides endpoints for handling users, cities, hotels, images, bookings, and reviews, ensuring a complete ecosystem for a hotel booking platform.\n\n## **🎯 Purpose**\n\nThe goal of the Booking App is to simulate a real-world hotel reservation system, allowing users to:\n\n- Register and log in securely.\n    \n- Explore and filter hotels by city or name.\n    \n- Make and manage reservations.\n    \n- Share reviews and ratings.\n    \n- Access hotel images and details.\n    \n\n## **🏗️ Core Features**\n\n- **User Management:** Registration, login, profile updates, and secure authentication.\n    \n- **City Management:** CRUD operations for cities, with country codes for easy identification.\n    \n- **Hotel Management:** Search hotels by name or city, view details, and calculate average ratings from reviews.\n    \n- **Image Management:** Associate multiple images with hotels for richer content.\n    \n- **Booking System:** Create, update, and delete reservations linked to logged-in users.\n    \n- **Review System:** Post and manage reviews with pagination and filtering by hotel.\n    \n\n## **📊 Dataset**\n\nThe backend is seeded with realistic data to support testing and scalability:\n\n- 100 registered users\n    \n- 30 cities\n    \n- 150 hotels\n    \n- 300+ bookings\n    \n- 100+ reviews\n    \n- 300+ hotel images\n    \n\n## **🔒 Security & Access**\n\n- Public endpoints for browsing hotels, cities, and reviews.\n    \n- Private endpoints secured with authentication for managing users, bookings, hotels, and images.\n    \n- Smart queries and pagination for efficient data handling.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48309056",
+    "_collection_link": "https://go.postman.co/collection/48309056-e65f04f9-7473-4d84-8d0c-bb6fc332f404?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyNSwiZmlyc3ROYW1lIjoiTHVjYXMiLCJsYXN0TmFtZSI6IlNpbHZhIiwiZW1haWwiOiJsdWNhcy5zaWx2YTAxOUBleGFtcGxlLmNvbSIsImdlbmRlciI6Ik1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoifSwiaWF0IjoxNzY2NDcyNzE5LCJleHAiOjE3NjY1NTkxMTl9.b8AETYslbHV8UdPK_5EP4LotK4QkWYQFFEutdC_LKJA",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/users",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Pedro\",\r\n    \"lastName\": \"Lima\",\r\n    \"email\": \"pedro.lima094@example.com\",\r\n    \"password\": \"123456\",\r\n    \"gender\": \"MALE\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/users",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "User Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"lucas.silva019@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/users/login",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "users",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyNSwiZmlyc3ROYW1lIjoiTHVjYXMiLCJsYXN0TmFtZSI6IlNpbHZhIiwiZW1haWwiOiJsdWNhcy5zaWx2YTAxOUBleGFtcGxlLmNvbSIsImdlbmRlciI6Ik1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoifSwiaWF0IjoxNzY2NDcyNzU5LCJleHAiOjE3NjY1NTkxNTl9.6tjyz5w5gNDPoCw01_LEAIpfvjkrcz7gQeSweZ5554A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/users/101",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "users",
+                "101"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Ava\",\r\n    \"lastName\": \"Thompson\",\r\n    \"email\": \"ava.thompson@example.com\",\r\n    \"gender\": \"OTHER\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/users/6",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "users",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Users** folder contains all endpoints related to user management and authentication in the Booking App backend. These routes allow you to register new users, manage existing accounts, and handle secure login with token-based authentication.\n\n🔑 Key Features\n\n- `POST /users` → Register a new user\n    \n- `POST /users/login` → Authenticate and obtain a token\n    \n- **Private access (requires Bearer token):**\n    \n- `GET /users` → Retrieve all registered users\n    \n- `PUT /users/:id` → Update user details by ID\n    \n- `DELETE /users/:id` → Remove a user by ID\n    \n\n🧩 Model\n\nEach user record includes:\n\n- `id` (primary key)\n    \n- `firstName`\n    \n- `lastName`\n    \n- `email`\n    \n- `password` (securely stored)\n    \n- `gender`\n    \n\n🔒 Security\n\n- Login generates a JWT or token stored in `{{authToken}}`.\n    \n- All private endpoints require the token in the Authorization header.\n    \n- Passwords are never exposed in responses."
+    },
+    {
+      "name": "Cities",
+      "item": [
+        {
+          "name": "Get All Cities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/cities",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create City",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Cartagena\",\r\n    \"country\": \"Colombia\",\r\n    \"countryId\": \"CO\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/cities",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "cities"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete City",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/cities/31",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "cities",
+                "31"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update City",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"name\": \"New York City\",\r\n        \"country\": \"United States of America\",\r\n        \"countryId\": \"US\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/cities/2",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "cities",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Cities** folder contains all endpoints related to managing city records in the Booking App backend. These routes allow you to create, update, delete, and list cities, which serve as the foundation for associating hotels with their geographic location.\n\n🔑 Key Features\n\n- `GET /cities` → Retrieve all available cities\n    \n- **Private access (requires Bearer token):**\n    \n- `POST /cities` → Create a new city\n    \n- `PUT /cities/:id` → Update an existing city by ID\n    \n- `DELETE /cities/:id` → Remove a city by ID\n    \n\n🧩 Model\n\nEach city record includes:\n\n- `id` (primary key)\n    \n- `name` (e.g., Guadalajara, Bogotá, New York)\n    \n- `country` (full country name)\n    \n- `countryId` (string code, e.g., MX, CO, US)\n    \n\n📊 Dataset\n\nThe backend is seeded with **30 cities**, ensuring diverse test data for hotel associations and queries.\n\n🔒 Security\n\n- Only authenticated users can create, update, or delete cities.\n    \n- Public endpoints allow anyone to browse the list of cities."
+    },
+    {
+      "name": "Hotels",
+      "item": [
+        {
+          "name": "Get All Hotels",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Hotel",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Pullman Auckland\",\r\n    \"description\": \"Pullman Auckland is a modern hotel located near Albert Park and the central business district. It offers contemporary rooms, a wellness spa, and extensive conference facilities. Highlights: Central CBD location, wellness spa, business amenities, proximity to Albert Park.\",\r\n    \"price\": 230.00,\r\n    \"address\": \"Corner Princes Street and Waterloo Quadrant, Auckland, New Zealand.\",\r\n    \"lat\": -36.8490,\r\n    \"lon\": 174.7700,\r\n    \"cityId\": 29\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/hotels",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Hotel with Querys by name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels?name=Park Hyatt Melbourne",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Park Hyatt Melbourne"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Hotel with Querys by cityId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels?cityId=4",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels"
+              ],
+              "query": [
+                {
+                  "key": "cityId",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Hotel with Querys by name and cityId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels?name=Tribe Hotel&cityId=19",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Tribe Hotel"
+                },
+                {
+                  "key": "cityId",
+                  "value": "19"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get One Hotel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/151",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels",
+                "151"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Hotel",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/150",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels",
+                "150"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Hotel",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2MTk4MjA4LCJleHAiOjE3NjYyODQ2MDh9.To-ERsthHQbRyqRpOlxk7jw4FmuBzxitBvakpoJdfvQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Le Meurice\",\r\n    \"description\": \"Le Meurice is a historic luxury hotel overlooking the Tuileries Garden. Known as the “hotel of kings,” it blends 18th-century opulence with modern comfort. It features Michelin-starred dining by Alain Ducasse, elegant suites, and a world-class spa. Highlights: Michelin-starred restaurant, historic prestige, views of the Tuileries Garden, luxury spa.\",\r\n    \"price\": \"1250.00\",\r\n    \"address\": \"228 Rue de Rivoli, 75001 Paris, France.\",\r\n    \"lat\": \"48.86560000\",\r\n    \"lon\": \"2.32750000\",\r\n    \"cityId\": 11\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/hotels/51",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "hotels",
+                "51"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Hotels** folder contains all endpoints related to hotel management in the Booking App backend. These routes allow you to browse, filter, create, update, and delete hotel records, as well as retrieve detailed information about each property.\n\n🔑 Key Features\n\n- `GET /hotels` → Retrieve all hotels, with optional queries for `name` and `cityId`.\n    \n    - Example: `/hotels?name=Four Seasons&cityId=1`\n        \n    - Each hotel includes an **average** field showing the mean rating from its reviews.\n        \n- `GET /hotels/:id` → Retrieve a single hotel by ID.\n    \n- **Private access (requires Bearer token):**\n    \n- `POST /hotels` → Create a new hotel record.\n    \n- `PUT /hotels/:id` → Update hotel details by ID.\n    \n- `DELETE /hotels/:id` → Remove a hotel by ID.\n    \n\n🧩 Model\n\nEach hotel record includes:\n\n- `id` (primary key)\n    \n- `name`\n    \n- `description`\n    \n- `price`\n    \n- `address`\n    \n- `lat` (latitude)\n    \n- `lon` (longitude)\n    \n- `cityId` (reference to the city)\n    \n\n📊 Dataset\n\nThe backend is seeded with **150 hotels**, each linked to one of the 30 available cities. Hotels are enriched with images, reviews, and booking data to support realistic testing scenarios.\n\n🔒 Security\n\n- Public endpoints allow anyone to explore hotels and their details.\n    \n- Private endpoints require authentication with a valid token."
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAsImZpcnN0TmFtZSI6IlBlZHJvIiwibGFzdE5hbWUiOiJMaW1hIiwiZW1haWwiOiJwZWRyby5saW1hMDkzQGV4YW1wbGUuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiJ9LCJpYXQiOjE3NjYzNzU5NDMsImV4cCI6MTc2NjQ2MjM0M30.H1hwOmGgTCGjnPbojonKKtmGi05Q8UqrDWZ1H1-LfwU",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAsImZpcnN0TmFtZSI6IlBlZHJvIiwibGFzdE5hbWUiOiJMaW1hIiwiZW1haWwiOiJwZWRyby5saW1hMDkzQGV4YW1wbGUuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiJ9LCJpYXQiOjE3NjYzMDUyODAsImV4cCI6MTc2NjM5MTY4MH0.-DMfHaUMatB4URe97wiPpkS2GnVab43oGpR5MN5_7z4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMywiZmlyc3ROYW1lIjoiSmhvbiIsImxhc3ROYW1lIjoiRG9lIiwiZW1haWwiOiJqaG9uZG9lQHRlc3QuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMTZUMTk6NTY6NTUuMDU3WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMTZUMTk6NTY6NTUuMDU3WiJ9LCJpYXQiOjE3NjU5MTUwMTUsImV4cCI6MTc2NjAwMTQxNX0.EBUkF_7wUtey3sp-ql2v4SDnmksbw_tcbjtatJaK9iw",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"checkIn\": \"2024-09-12\",\r\n    \"checkOut\": \"2024-09-16\",\r\n    \"hotelId\": 62\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/bookings",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo0MSwiZmlyc3ROYW1lIjoiT21hciIsImxhc3ROYW1lIjoiQWJkdWxsYWgiLCJlbWFpbCI6Im9tYXIuYWJkdWxsYWgwMzVAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJNQUxFIiwiY3JlYXRlZEF0IjoiMjAyNS0xMi0yMVQwMjoxNTozNC40NDFaIiwidXBkYXRlZEF0IjoiMjAyNS0xMi0yMVQwMjoxNTozNC40NDFaIn0sImlhdCI6MTc2NjI5Nzc5MiwiZXhwIjoxNzY2Mzg0MTkyfQ.LKi9Gjy-bXpiWZSgelS6oCe2yRi0DTMbU-xr2obxqiA",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/180",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bookings",
+                "180"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Booking",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJmaXJzdE5hbWUiOiJBdmEiLCJsYXN0TmFtZSI6IlRob21wc29uIiwiZW1haWwiOiJhdmEudGhvbXBzb25AZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJPVEhFUiIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjBUMDI6MzI6MzkuNDQ3WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjBUMDI6Mzc6MzUuMzIxWiJ9LCJpYXQiOjE3NjYyOTEwOTEsImV4cCI6MTc2NjM3NzQ5MX0.G9cul6kdkonYmesAyNvlsRtRKMyOiBsPPPJ6Az8VfpQ",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"checkIn\": \"2024-11-27\",\r\n    \"checkOut\": \"2024-12-02\",\r\n    \"hotelId\": 28\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/bookings/25",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "bookings",
+                "25"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Bookings** folder contains all endpoints related to hotel reservations in the Booking App backend. These routes allow logged-in users to create, view, update, and delete their reservations, ensuring a secure and personalized booking experience.\n\n🔑 Key Features\n\n- **Private access (requires Bearer token):**\n    \n- `GET /bookings` → Retrieve all bookings of the logged-in user.\n    \n- `POST /bookings` → Create a new booking. The `userId` is automatically inferred from the authenticated user.\n    \n- `PUT /bookings/:id` → Update booking dates (`checkIn` and `checkOut` only). `userId` and `hotelId` cannot be modified.\n    \n- `DELETE /bookings/:id` → Cancel a booking by ID.\n    \n\n🧩 Model\n\nEach booking record includes:\n\n- `id` (primary key)\n    \n- `checkIn` (date)\n    \n- `checkOut` (date)\n    \n- `userId` (linked to logged-in user)\n    \n- `hotelId` (linked to hotel)\n    \n\n📊 Dataset\n\nThe backend is seeded with **300+ bookings**, providing realistic scenarios for testing reservation flows, date updates, and cancellations.\n\n🔒 Security\n\n- All booking endpoints are private and require authentication.\n    \n- The system ensures that users can only access and manage their own reservations."
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Get All Reviews",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/reviews",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyNSwiZmlyc3ROYW1lIjoiTHVjYXMiLCJsYXN0TmFtZSI6IlNpbHZhIiwiZW1haWwiOiJsdWNhcy5zaWx2YTAxOUBleGFtcGxlLmNvbSIsImdlbmRlciI6Ik1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIxVDAyOjAwOjE0LjMzOFoifSwiaWF0IjoxNzY2NDU3NjUxLCJleHAiOjE3NjY1NDQwNTF9.rFcK6sAEm5qywYE_usksRj9Ngut6sB1qjUnP3rmm_oM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 1,\r\n    \"comment\": \"La peor experiencia, la habitación estaba sucia y el servicio pésimo.\",\r\n    \"hotelId\": 25\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/reviews",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "reviews"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2NDUwOTU2LCJleHAiOjE3NjY1MzczNTZ9.qIPd7sSnoFiD77JBLn4Pnj1c3AcHr7HQJ4JNEFeA6Oo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 2,\r\n    \"comment\": \"Tuve varios problemas al intentar reservar.\",\r\n    \"hotelId\": 104\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/reviews/4",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "reviews",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyLCJmaXJzdE5hbWUiOiJTb3BoaWEiLCJsYXN0TmFtZSI6Ik1hcnRpbmV6IiwiZW1haWwiOiJzb3BoaWEubWFydGluZXpAZXhhbXBsZS5jb20iLCJnZW5kZXIiOiJGRU1BTEUiLCJjcmVhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oiLCJ1cGRhdGVkQXQiOiIyMDI1LTEyLTIwVDAyOjI5OjM0LjE3N1oifSwiaWF0IjoxNzY2NDUwOTU2LCJleHAiOjE3NjY1MzczNTZ9.qIPd7sSnoFiD77JBLn4Pnj1c3AcHr7HQJ4JNEFeA6Oo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/reviews/42",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "reviews",
+                "42"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Reviews filter with query by hotelId and querys offset and perPage for pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/reviews?hotelId=1&offset=0&perPage=10",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "reviews"
+              ],
+              "query": [
+                {
+                  "key": "hotelId",
+                  "value": "1"
+                },
+                {
+                  "key": "offset",
+                  "value": "0"
+                },
+                {
+                  "key": "perPage",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Reviews** folder contains all endpoints related to hotel reviews in the Booking App backend. These routes allow users to share feedback about their stays, manage their own reviews, and browse reviews from other guests with pagination and filtering options.\n\n🔑 Key Features\n\n- `GET /reviews` → Retrieve all reviews.\n    \n    - Supports queries for `hotelId` to filter reviews by hotel.\n        \n    - Supports `offset` and `perPage` for pagination (e.g., `/reviews?hotelId=1&offset=0&perPage=10`).\n        \n- **Private access (requires Bearer token):**\n    \n- `POST /reviews` → Create a new review. The `userId` is automatically inferred from the logged-in user.\n    \n- `PUT /reviews/:id` → Update an existing review (only `rating` and `comment` can be modified).\n    \n- `DELETE /reviews/:id` → Remove a review by ID.\n    \n\n🧩 Model\n\nEach review record includes:\n\n- `id` (primary key)\n    \n- `rating` (numeric score)\n    \n- `comment` (text feedback)\n    \n- `userId` (linked to the logged-in user)\n    \n- `hotelId` (linked to the hotel being reviewed)\n    \n\n📊 Dataset\n\nThe backend is seeded with **100+ reviews**, providing realistic scenarios for testing hotel ratings, user feedback, and pagination queries.\n\n🔒 Security\n\n- Public endpoints allow anyone to browse reviews.\n    \n- Private endpoints require authentication, ensuring users can only create, update, or delete their own reviews."
+    },
+    {
+      "name": "Images",
+      "item": [
+        {
+          "name": "Create Images",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAsImZpcnN0TmFtZSI6IlBlZHJvIiwibGFzdE5hbWUiOiJMaW1hIiwiZW1haWwiOiJwZWRyby5saW1hMDkzQGV4YW1wbGUuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiJ9LCJpYXQiOjE3NjYzNzU5NDMsImV4cCI6MTc2NjQ2MjM0M30.H1hwOmGgTCGjnPbojonKKtmGi05Q8UqrDWZ1H1-LfwU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "uuid": "eece520e-c293-4021-a8a6-1a91450ecdec",
+                  "src": "/C:/Users/clios/OneDrive/Imágenes/BookingApp/Oceania/150/images.jfif"
+                },
+                {
+                  "key": "hotelId",
+                  "value": "151",
+                  "type": "text",
+                  "uuid": "61f06abd-ce34-4f2b-bc55-b20b49a35aae"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/images",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "images"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Images",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAsImZpcnN0TmFtZSI6IlBlZHJvIiwibGFzdE5hbWUiOiJMaW1hIiwiZW1haWwiOiJwZWRyby5saW1hMDkzQGV4YW1wbGUuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiJ9LCJpYXQiOjE3NjYzNzU5NDMsImV4cCI6MTc2NjQ2MjM0M30.H1hwOmGgTCGjnPbojonKKtmGi05Q8UqrDWZ1H1-LfwU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/images",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "images"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Image",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxMDAsImZpcnN0TmFtZSI6IlBlZHJvIiwibGFzdE5hbWUiOiJMaW1hIiwiZW1haWwiOiJwZWRyby5saW1hMDkzQGV4YW1wbGUuY29tIiwiZ2VuZGVyIjoiTUFMRSIsImNyZWF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiIsInVwZGF0ZWRBdCI6IjIwMjUtMTItMjFUMDM6MDg6MDQuNzE0WiJ9LCJpYXQiOjE3NjYzNzU5NDMsImV4cCI6MTc2NjQ2MjM0M30.H1hwOmGgTCGjnPbojonKKtmGi05Q8UqrDWZ1H1-LfwU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/images/360",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "images",
+                "360"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "The **Images** folder contains all endpoints related to hotel images in the Booking App backend. These routes allow authenticated users to upload, list, and delete images associated with hotels, enriching the booking experience with visual content.\n\n🔑 Key Features\n\n- **Private access (requires Bearer token):**\n    \n- `GET /images` → Retrieve all hotel images.\n    \n- `POST /images` → Upload a new image linked to a hotel.\n    \n- `DELETE /images/:id` → Remove an image by ID.\n    \n\n🧩 Model\n\nEach image record includes:\n\n- `id` (primary key)\n    \n- `url` (link to the image resource)\n    \n- `hotelId` (reference to the hotel)\n    \n\n📊 Dataset\n\nThe backend is seeded with **300+ hotel images**, ensuring diverse and realistic visual data for testing and presentation.\n\n🔒 Security\n\n- All image endpoints are private and require authentication.\n    \n- Only authorized users can manage hotel images."
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://booking-app-b5o8.onrender.com"
+    }
+  ]
+}
