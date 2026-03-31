@@ -23,6 +23,6 @@ jobs:
 
       - name: Run Postman Collection
         run: |
-          newman run BOOKING-APP/booking-app.json \
+          newman run booking-app.json \
           --reporters cli \
           --env-var "baseUrl=https://booking-app-b5o8.onrender.com"
