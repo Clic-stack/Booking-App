@@ -1,13 +1,14 @@
-## 🏨 Booking App <br/> <p align="right">[![Real-World Integration Tests](https://img.shields.io/badge/Tests-Real--World%20Integration-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=010B13)](https://github.com/Clic-stack/Booking-App/actions)</p>
+## <p align="center">🏨 Booking App</p> <br/> <p align="center">[![SecOps: CodeQL Analysis](https://img.shields.io/badge/Analysis-CodeQL--SecOps-F5F5F5?style=for-the-badge&logo=github&logoColor=black&labelColor=A9A9A9)](https://github.com/Clic-stack/Booking-App/actions)[![SecOps: DAST Dynamic Scan](https://img.shields.io/badge/Scan-DAST%20Dynamic--SecOps-003366?style=for-the-badge&logo=github&logoColor=FFFFFF&labelColor=000033)](https://github.com/Clic-stack/Booking-App/actions) [![Real-World Integration Tests](https://img.shields.io/badge/Tests-Real--World%20Integration-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=010B13)](https://github.com/Clic-stack/Booking-App/actions) [![API Contract: Postman Validation](https://img.shields.io/badge/Validation-API%20Contract--Postman-50C878?style=for-the-badge&logo=postman&logoColor=E5E5E5&labelColor=006400)](https://github.com/Clic-stack/Booking-App/actions)[![Continuous Integration (CI/CD) Tests](https://img.shields.io/badge/Tests-CI--Continuous%20Integration-FFFFFF?style=for-the-badge&logo=jest&logoColor=003366&labelColor=FFFDD0)](https://github.com/Clic-stack/Booking-App/actions)</p>
+</p> 
 
-> [!TIP]
-> **Quick Setup Note:** This project includes default values (*fallbacks*) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out-of-the-box without extra security overhead.
-[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
+> [!TIP] <p align="justify">
+> **Quick Setup Note:** This project includes default values (*fallbacks*) for the `JWT_SECRET` in development and testing environments. This facilitates rapid deployment and ensures the test suite runs out of the box without extra security overhead.
+[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)[![SecOps: CodeQL Analysis](https://github.com/Clic-stack/Booking-App/actions/workflows/codeql.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/codeql.yml)[![SecOps: DAST Dynamic Scan](https://github.com/Clic-stack/Booking-App/actions/workflows/dast.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/dast.yml)[![API Contract: Postman Validation](https://github.com/Clic-stack/Booking-App/actions/workflows/postman-validation.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/postman-validation.yml)
 
-A backend system built with Express, Sequelize, and PostgreSQL to manage hotel reservations. 
-This project provides a complete API for handling users, cities, hotels, images, bookings, and reviews, ensuring a secure, scalable, and user-friendly architecture.
+A professional backend system built with **Express**, **Sequelize**, and **PostgreSQL** to manage hotel reservations. This project provides a complete API for handling users, cities, hotels, images, bookings, and reviews, ensuring a secure, scalable, and production-ready architecture.
 
 ---
+</p>
 
 ## 🌐 Deployment
 
@@ -28,9 +29,14 @@ This project provides a complete API for handling users, cities, hotels, images,
 
 ## 🟢 Technical Quality Assurance (QA) & Automation
 
-**What does the "passing" badge at the beginning of this project mean?**
-In a professional environment, it is not enough for an application to simply "work"; it must be reliable.
-This project implements **Real-World Integration Tests**. This means that every time a code change is made, an automated surveillance system that ensures every component (Database, Security, and Functions) operates correctly, even when handling high volumes of information.
+**What does the "passing" badge at the beginning of this project mean?** <p align="justify">
+In high-stakes environments like hotel reservations, reliability and security are non-negotiable. Booking App is protected by a **5 pillar automated surveillance system**:
+
+1.  **Static Analysis (CodeQL):** Scans the source code for logical errors and security flaws before deployment.
+2.  **Dynamic Scan (DAST):** Tests the running application against real-world attack vectors (SecOps).
+3.  **API Contract Validation:** Ensures the 25+ endpoints return exactly the data structure promised in the Postman documentation.
+4.  **Real-World Integration:** Validates live connections between the API and the PostgreSQL database.
+5.  **Continuous Integration (CI):** Executes the full suite of **Jest** and **Supertest** (22/25 core endpoints) on every push.
 
 - **Green Badge (Passing):** Indicates the code is solid and secure. It has passed all quality inspections and is ready for use in a real-world production environment without unexpected errors.
 - **Red Badge (Failing):** Acts as an emergency brake. If a technical error is detected, the system automatically blocks any updates before they can affect the end user or compromise data integrity.
@@ -38,6 +44,7 @@ This project implements **Real-World Integration Tests**. This means that every 
 **In summary:** This badge is your guarantee that the software has been built under professional standards, prioritizing stability and data protection at all times.
 
 ---
+</p>
 
 ### 📊 Database Architecture
 
@@ -83,7 +90,7 @@ This project was designed to:
 
 ---
 
-## 🚀 Key Features & Implementation Details
+## 🚀 Key Features & Implementation Details <p align="justify">
 - ✅ **Full API Coverage (25 Endpoints):** 100% of required endpoints implemented, including private and public routes, ensuring a complete management system for Users, Cities, Hotels, Images, Bookings, and Reviews.
 - 🧪 **Professional Testing Suite:** Robust implementation of **Jest** and **Supertest**, with automated tests for every endpoint to guarantee reliability and prevent regressions in the business logic.
 - 🔐 **Advanced Authentication & Security:**
@@ -100,6 +107,7 @@ This project was designed to:
   - **Relational Database Modeling** with Sequelize and PostgreSQL, ensuring data integrity and strictly enforcing update restrictions (e.g., preventing modification of `userId` in bookings).
 
 ---
+</p>
 
 ## 📊 Project Architecture Summary
 - **Backend:** Node.js & Express.
@@ -110,12 +118,11 @@ This project was designed to:
 
 ---
 
-## 🧪 Testing Suite
+## 🧪 Testing Suite <p align="justify">
 
 Quality assurance is a priority in this project. A comprehensive test suite was developed using **Jest** and **Supertest** to validate every layer of the API.
 
 * **Total Coverage:** 22/25 mandatory endpoints tested (100% Core Business Logic).
-* **CI/CD Pipeline:** ✅ Automated **Real-World Integration Tests** powered by GitHub Actions, validating live connections with PostgreSQL. Every `push` or `pull request` triggers the full test suite to guarantee stability in both production and development environments.
 * **Scope:** 
     * **Integration Tests:** Ensuring seamless interaction between routes, controllers, and the PostgreSQL database for Users, Cities, Hotels, Bookings, and Reviews.
     * **Security Tests:** Verifying JWT authorization and restricted access to private routes.
@@ -128,16 +135,22 @@ npm test
 ```
 
 ---
+</p>
 
 ## 💻 Tech Stack
-| Backend Tools | Database       | Security & Middleware | Utilities   |
-|---------------|----------------|-----------------------|-------------|
-| Node.js       | PostgreSQL     | Helmet                | bcrypt      |
-| Express       | Sequelize      | CORS                  | uuid        |
-| Morgan        | pg/pg-hstore   | JWT                   | multer      |
-| Cloudinary    |                |                       | streamifier |
+</br>
+<div align="center"> 
+    
+| Backend Tools | Database       | Security & Middleware | Utilities   | QA               |
+|---------------|----------------|-----------------------|-------------|------------------|
+| Node.js       | PostgreSQL     | Helmet                | bcrypt      | Jest             |
+| Express       | Sequelize      | CORS                  | uuid        | Supertest        |
+| Morgan        | pg/pg-hstore   | JWT                   | multer      | Newman (Postman) |
+| Cloudinary    |                |                       | streamifier | GitHub Actions   |
 
 ---
+</br>
+</div>
 
 ## 🧪 API Coverage
 The following endpoints are implemented: 
@@ -196,7 +209,7 @@ The following endpoints are implemented:
 "scripts": {
   "dev": "node --watch --env-file=.env src/server.js",
   "start": "node src/server.js",
-  "test": "node --env-file=.env node_modules/jest/bin/jest.js"
+  "test": "jest --runInBand --forceExit"
 }
 ```
 
@@ -206,6 +219,12 @@ The following endpoints are implemented:
 
 ```bash
 📁 BOOKING-APP
+|   ├── 📁 .github/
+│   |   └── 📁 workflows/
+│   |   |    └── codeql.yml
+│   |   |    └── dast.yml
+│   |   |    └── node.js.yml
+│   |   |    └── postman-validation.yml
 |   ├── 📁 node_modules/
 |   ├── 📁 src/
 │   |   └── 📁 config/
@@ -253,9 +272,12 @@ The following endpoints are implemented:
 │   |   └── user.test.js
 |   └── .env.example
 |   └── .gitignore
+|   └── booking-app.json
+|   └── CONTRIBUTING.md
 |   └── jest.config.js
 |   └── package-lock.json
 |   └── package.json
+|   └── README.md
 ```
 ---
 
@@ -269,7 +291,7 @@ The following endpoints are implemented:
    ```bash
    npm i
    ```
-3. Configure enviroment variables:
+3. Configure environment variables:
 - Changes file name `.env.example` to `.env`
 - Modify variable values.
 - Example configuration:
@@ -299,27 +321,33 @@ The following endpoints are implemented:
    ```
 ---
 
-## 🎨 Author
-Developed by Clio Salgado as part of the Node.js  & Backend module at Academlo, with the goal of consolidating skills in:
-- API design and documentation.
-- Database modeling with Sequelize & PostgreSQL.
-- Authentication and authorization with JWT.
-- Professional backend workflows and reproducible environments.
-
-🔽 **Versión en Español** 🔽
-
-
-## 🏨 Booking App <br/> <p align="right">[![Pruebas de Integración de Escenario Real](https://img.shields.io/badge/Pruebas-Integración%20de%20Escenario%20Real-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=000000)](https://github.com/Clic-stack/Booking-App/actions)</p> 
-
-> [!TIP]
-> **Nota de configuración rápida:** Este proyecto incluye valores por defecto (*fallbacks*) para la `JWT_SECRET` en entornos de desarrollo y pruebas. Esto facilita un despliegue rápido y garantiza que la suite de tests se ejecute correctamente de forma inmediata, sin configuraciones de seguridad adicionales.
-[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)
-
-
-Sistema backend construído con Express, Sequelize y PostgreSQL para el manejo de reservaciones de hotel.
-Este proyecto proporciona una API robusta y completa para el manejo de usuarios, ciudades, hoteles, imágenes, reservaciones y reseñas. Asegurando seguridad, escalabilidad, pero por sobre todas las cosas una arquitectura que sea amigable con el usuario.
+## 🚀 Future Roadmap: Data & DevOps Evolution
+* **IaC (Infrastructure as Code):** Provisioning Azure resources using **Terraform** for a fully reproducible environment.
+* **ETL Pipeline:** Implementation of automated data workflows to move operational data into an analytical warehouse.
+* **Predictive Analytics:** Developing a **Machine Learning** model to provide personalized hotel recommendations based on user behavior and reviews.
 
 ---
+
+## 🎨 Author
+Developed by Clio Salgado. A data-driven fullstack developer focused on building reliable, secure, and highly automated backend solutions.
+</br>
+</br>
+
+🔽 **Versión en Español** 🔽
+</br>
+
+
+## <p align="center"> 🏨 Booking App </p> <br/> <p align="center">[![SecOps: Análisis CodeQL](https://img.shields.io/badge/Análisis-CodeQL--SecOps-F5F5F5?style=for-the-badge&logo=github&logoColor=black&labelColor=A9A9A9)](https://github.com/Clic-stack/Booking-App/actions)[![SecOps: Escaneo Dinámico DAST](https://img.shields.io/badge/Escaneo-DAST%20Dinámico--SecOps-003366?style=for-the-badge&logo=github&logoColor=FFFFFF&labelColor=000033)](https://github.com/Clic-stack/Booking-App/actions)[![Pruebas de Integración Reales](https://img.shields.io/badge/Pruebas-Integración%20Real-FFD700?style=for-the-badge&logo=postgresql&logoColor=FFD700&labelColor=010B13)](https://github.com/Clic-stack/Booking-App/actions)[![Contrato API: Validación Postman](https://img.shields.io/badge/Validación-Contrato%20API--Postman-50C878?style=for-the-badge&logo=postman&logoColor=E5E5E5&labelColor=006400)](https://github.com/Clic-stack/Booking-App/actions)[![Pruebas de Integración Continua (CI/CD)](https://img.shields.io/badge/Pruebas-CI--Integración%20Continua-FFFFFF?style=for-the-badge&logo=jest&logoColor=003366&labelColor=FFFDD0)](https://github.com/Clic-stack/Booking-App/actions)
+</p> 
+
+> [!TIP] <p align="justify">
+> **Nota de configuración rápida:** Este proyecto incluye valores por defecto (*fallbacks*) para la `JWT_SECRET` en entornos de desarrollo y pruebas. Esto facilita un despliegue rápido y garantiza que la suite de tests se ejecute correctamente de forma inmediata, sin configuraciones de seguridad adicionales.
+[![Node.js CI (Booking-App Tests)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/node.js.yml)[![SecOps: CodeQL Analysis](https://github.com/Clic-stack/Booking-App/actions/workflows/codeql.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/codeql.yml)[![SecOps: DAST Dynamic Scan](https://github.com/Clic-stack/Booking-App/actions/workflows/dast.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/dast.yml)[![API Contract: Postman Validation](https://github.com/Clic-stack/Booking-App/actions/workflows/postman-validation.yml/badge.svg?branch=main&event=push)](https://github.com/Clic-stack/Booking-App/actions/workflows/postman-validation.yml)
+
+Sistema de **backend profesional** construido con **Express, Sequelize** y **PostgreSQL** para la gestión de reservas hoteleras. Este proyecto ofrece una API completa para el manejo de usuarios, ciudades, hoteles, imágenes, reservas y reseñas, garantizando una arquitectura segura, escalable y lista para producción.
+
+---
+</p>
 
 ## 🌐 Despliegue
 
@@ -340,15 +368,22 @@ Este proyecto proporciona una API robusta y completa para el manejo de usuarios,
 
 ## 🟢 Garantía de Calidad Técnica (QA) y Automatización
 
-**¿Qué significa el sello "passing" al inicio de este proyecto?**
-En un entorno profesional, no basta con que una aplicación simplemente "funcione"; debe ser confiable.
-Este proyecto implementa **Pruebas de Integración de Escenario Real**. Esto significa que cada vez que se realiza un cambio en el código, un sistema de vigilancia automática garantiza que cada componente (Base de Datos, Seguridad y Funciones) opere correctamente, incluso al manejar altos volúmenes de información.
+**¿Qué significa el sello "passing" al inicio de este proyecto?** <p align="justify">
+En entornos altamente críticos como las reservas hoteleras, la confiabilidad y la seguridad son innegociables. **Booking App** está protegida por un **sistema de vigilancia automatizado de 5 pilares:**
+
+1. **Análisis Estático (CodeQL):** Escanea el código fuente en busca de errores lógicos y fallos de seguridad antes del despliegue.
+2. **Escaneo Dinámico (DAST):** Evalúa la aplicación en ejecución frente a vectores de ataque del mundo real (SecOps).
+3. **Validación de Contrato de API:** Garantiza que los más de 25 endpoints devuelvan exactamente la estructura de datos prometida en la documentación de Postman.
+4. **Integración Real (Real-World):** Valida las conexiones en vivo entre la API y la base de datos PostgreSQL.
+5. **Integración Continua (CI):** Ejecuta la suite completa de **Jest** y **Supertest** (cubriendo 22 de los 25 endpoints principales) con cada actualización de código (push).
+   
 - **Sello Verde (Passing):** Indica que el código es sólido y seguro. Ha superado todas las inspecciones de calidad y está listo para ser utilizado en un entorno de producción real sin errores inesperados.
 - **Sello Rojo (Failing):** Actúa como un freno de emergencia. Si se detecta un error técnico, el sistema bloquea automáticamente cualquier actualización antes de que pueda afectar al usuario final o comprometer la integridad de los datos.
 
 **En resumen:** Este sello es tu garantía de que el software ha sido construido bajo estándares profesionales, priorizando la estabilidad y la protección de los datos en todo momento.
 
 ---
+</p>
 
 ### 📊 Arquitectura de la Base de Datos
 
@@ -394,7 +429,8 @@ Este proyecto fue diseñado para:
 - Entregar documentación profesional y flujos de trabajo reproducibles para el desarrollo colaborativo.
   
 ---
-## 🚀 Funcionalidades Principales y Detalles de Implementación
+
+## 🚀 Funcionalidades Principales y Detalles de Implementación <p align="justify">
 - ✅ **Cobertura Total de la API (25 Endpoints):** 100% de los endpoints requeridos implementados, incluyendo rutas públicas y privadas, asegurando el manejo completo del sistema para Usuarios, Ciudades, Hoteles, Imágenes, Reservaciones y Reseñas.
 - 🧪 **Suite de Testing Profesional:** Implementación robusta de **Jest** y **Supertest**, con tests automatizados para cada endpoint garantizando su fiabilidad, previniendo regresiones en la lógica de negocio.
 - 🔐 **Seguridad y Autenticación Avanzada:**
@@ -404,13 +440,14 @@ Este proyecto fue diseñado para:
 - 📂 **Gestión de Archivos Multimedia:** Integrando **Cloudinary** para el alojamiento y gestión profesional de imágenes, gestionado a través de **Multer** para cargas de archivos sin interrupciones.
 - 📊 **Procesamiento Inteligente de Datos:**
   - **Cálculo Dinámico de Calificaciones:** Generando automáticamente un campo average (promedio) para los hoteles, calculando el puntaje a partir de todas las reseñas relacionadas.
-  - **Consultas Avanzadas** Busquedas inteligentes para hoteles por  `nombre` y `Id de ciudad`.
+  - **Consultas Avanzadas** Búsquedas inteligentes para hoteles por  `nombre` y `ID de ciudad`.
   - **Paginación optimizada** Implementando lógica `offset` y `perPage` para reseñas, garantizando un alto rendimiento y escalabilidad.
 - 🛠️ **Arquitectura Limpia y  & Flujos de Trabajo Confiables:**
   - **Manejo Centralizado de Errores** para lograr respuestas de API predecibles.
   - **Modelado Relacional en la Base de Datos** con Sequelize y PostgreSQL, garantizando la integridad de los datos y aplicando restricciones de actualización estrictas (previniendo la modificación de `userId` en reservaciones).
 
 ---
+</p>
 
 ## 📊 Resumen de Arquitectura de Proyecto
 - **Backend:** Node.js & Express.
@@ -421,12 +458,11 @@ Este proyecto fue diseñado para:
 
 ---
 
-## 🧪 Suite de Testings
+## 🧪 Suite de Pruebas <p align="justify">
 
-El aseguramiento en la calidad es una prioiridad en este proyecto. Es por ello que se desarrolló una suite integral de tests usando **Jest** y **Supertest** para validar cada capa dentro de la API.
+El aseguramiento en la calidad es una prioridad en este proyecto. Es por ello que se desarrolló una suite integral de tests usando **Jest** y **Supertest** para validar cada capa dentro de la API.
 
 * **Cobertura Total:** 22/25 endpoints testeados (100% de la lógica de negocio principal).
-* **CI/CD Pipeline:** ✅ Flujos de trabajo automatizados con **Pruebas de Integración Real**mediante GitHub Actions, validando la interacción real con la base de datos PostgreSQL. Cada `push` o `pull request` activa la suite completa de pruebas para garantizar la estabilidad tanto en entornos de producción como de desarrollo.
 * **Alcance:**  
     * **Pruebas de Integración:** Asegurando una interacción fluida entre rutas, controladores y la base de datos PostgreSQL para Usuarios, Ciudades, Hoteles, Reservaciones y Reseñas.
     * **Pruebas de Seguridad:** Verificación de autorización con JWT y acceso restringido a rutas privadas.
@@ -439,16 +475,22 @@ npm test
 ```
 
 ---
+</p>
 
 ## 💻 Tech Stack
-| Herramientas de Backend | Base de Datos  | Seguridad y Middleware | Utilidades  |
-|-------------------------|----------------|------------------------|-------------|
-| Node.js                 | PostgreSQL     | Helmet                 | bcrypt      |
-| Express                 | Sequelize      | CORS                   | uuid        |
-| Morgan                  | pg/pg-hstore   | JWT                    | multer      |
-| Cloudinary              |                |                        | streamifier |
+</br>
+<div align="center">
+    
+| Herramientas de Backend | Base de Datos  | Seguridad y Middleware | Utilidades  | QA               |
+|-------------------------|----------------|------------------------|-------------|------------------|
+| Node.js                 | PostgreSQL     | Helmet                 | bcrypt      | Jest             |
+| Express                 | Sequelize      | CORS                   | uuid        | Supertest        |
+| Morgan                  | pg/pg-hstore   | JWT                    | multer      | Newman (Postman) |
+| Cloudinary              |                |                        | streamifier | GitHub Actions   |
 
 ---
+</br>
+</div>
 
 ## 🧪 Cobertura en API
 Los siguientes endpoints fueron implementados: 
@@ -494,7 +536,7 @@ Los siguientes endpoints fueron implementados:
 
 ### Reseñas 
 - `GET /reviews` – Obtiene todas las reseñas (público) ✅
-- Supporta consultas: `hotelId`, `offset`, `perPage` para paginación. 
+- Soporta consultas: `hotelId`, `offset`, `perPage` para paginación. 
 - Ejemplo: `/reviews?hotelId=1&offset=0&perPage=10` 
 - `POST /reviews` – Crea una reseña (privado, userId = logged-in user) ✅
 - `DELETE /reviews/:id` – Elimina una reseña (privado) ✅
@@ -507,7 +549,7 @@ Los siguientes endpoints fueron implementados:
 "scripts": {
   "dev": "node --watch --env-file=.env src/server.js",
   "start": "node src/server.js",
-  "test": "node --env-file=.env node_modules/jest/bin/jest.js"
+  "test": "jest --runInBand --forceExit"
 }
 ```
 
@@ -517,6 +559,12 @@ Los siguientes endpoints fueron implementados:
 
 ```bash
 📁 BOOKING-APP
+|   ├── 📁 .github/
+│   |   └── 📁 workflows/
+│   |   |    └── codeql.yml
+│   |   |    └── dast.yml
+│   |   |    └── node.js.yml
+│   |   |    └── postman-validation.yml
 |   ├── 📁 node_modules/
 |   ├── 📁 src/
 │   |   └── 📁 config/
@@ -564,9 +612,12 @@ Los siguientes endpoints fueron implementados:
 │   |   └── user.test.js
 |   └── .env.example
 |   └── .gitignore
+|   └── booking-app.json
+|   └── CONTRIBUTING.md
 |   └── jest.config.js
 |   └── package-lock.json
 |   └── package.json
+|   └── README.md
 ```
 ---
 
@@ -593,7 +644,7 @@ Los siguientes endpoints fueron implementados:
 
   💡 Nota de configuración rápida: El proyecto incluye valores por defecto (fallbacks) para la `JWT_SECRET` en entornos de desarrollo y prueba. Esto facilita un despliegue rápido y permite que la suite de tests funcione de inmediato sin configuraciones complejas de seguridad adicionales.
   
-4. Corre el servidor locar para verificar que las configuraciones sean correctas:
+4. Corre el servidor local para verificar que las configuraciones sean correctas:
    ```bash
     npm run dev
    ```
@@ -609,9 +660,14 @@ Los siguientes endpoints fueron implementados:
    ```
 ---
 
-## 🎨 Autor
-Desarrollado por Clio Salgado como parte del módulo de Node.js y Backend en Academlo, con el objetivo de consolidar habilidades en:
-- Diseño y Documentación de una API.
-- Modelado de una base de datos realizada con Sequelize y PostgreSQL.
-- Autenticación y Autorización con JWT.
-- Flujos de trabajo de backend profesionales y entornos reproducibles.
+## 🚀 Hoja de Ruta: Evolución de Datos y DevOps (Future Roadmap) <p align="justify">
+* **IaC (Infraestructura como Código):** Aprovisionamiento de recursos en **Azure** utilizando Terraform para un entorno totalmente reproducible.
+* **Pipeline ETL:** Implementación de flujos de datos automatizados para mover datos operacionales hacia un almacén analítico (Data Warehouse).
+* **Analítica Predictiva:** Desarrollo de un modelo de **Machine Learning** para proporcionar recomendaciones de hoteles personalizadas basadas en el comportamiento del usuario y sus reseñas.
+
+---
+</p>
+
+## 🎨 Autora <p align="justify"> 
+Desarrollado por Clio Salgado. Desarrolladora Fullstack orientada a datos, enfocada en la construcción de soluciones de backend confiables, seguras y altamente automatizadas.
+</p>
