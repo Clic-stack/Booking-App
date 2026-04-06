@@ -1,8 +1,9 @@
 import { getAll, create, remove, update } from '../controllers/city.controller.js'
 import {Router} from 'express'
 import { auth } from '../middlewares/auth.js'
+import { apiLimiter } from '../middlewares/rateLimit.js';
 
-const router = Router()
+const router = Router(apiLimiter)
 
 router.route('/cities')
     .get(getAll)
