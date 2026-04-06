@@ -4,6 +4,7 @@ import { auth } from '../middlewares/auth.js'
 import { apiLimiter } from '../middlewares/rateLimit.js';
 
 const router = Router(apiLimiter)
+router.use(apiLimiter);
 
 router.route('/bookings')
     .get(auth, getAll)

@@ -3,7 +3,8 @@ import {Router} from 'express'
 import { auth } from '../middlewares/auth.js'
 import { apiLimiter } from '../middlewares/rateLimit.js';
 
-const router = Router(apiLimiter)
+const router = Router()
+router.use(apiLimiter);
 
 router.route('/hotels')
     .get(getAll)
