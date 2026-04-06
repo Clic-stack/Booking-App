@@ -5,11 +5,11 @@ import { apiLimiter } from '../middlewares/rateLimit.js';
 
 const router = Router()
 
-router.route('/')
-  .get(getAll)
+router.route('/reviews')
+  .get(apiLimiter, getAll)
   .post(auth, apiLimiter, create); // Protegemos el POST (operación costosa)
 
-router.route('/:id')
+router.route('/reviews/:id')
   .delete(auth, apiLimiter, remove) // Protegemos el DELETE
   .put(auth, apiLimiter, update);   // Protegemos el PUT
 

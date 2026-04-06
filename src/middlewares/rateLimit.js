@@ -1,11 +1,13 @@
 import rateLimit from 'express-rate-limit';
 
 export const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // Ventana de 15 minutos
-  max: 100, // Límite de 100 peticiones por IP por cada 15 minutos
+  windowMs: 15 * 60 * 1000,
+  max: (process.env.NODE_ENV === 'test') ? 0 : 100, // 0 suele desactivarlo o poner un límite infinito dependiendo de la versión
+  // Una mejor opción es usar la propiedad 'skip':
+  skip: () => process.env.NODE_ENV === 'test', // Si estamos en tests, no limites nada
   message: {
-    message: "Demasiadas peticiones desde esta IP, por favor intenta de nuevo después de 15 minutos."
+    message: "Demasiadas peticiones..."
   },
-  standardHeaders: true, // Retorna info del límite en los headers `RateLimit-*`
-  legacyHeaders: false, // Desactiva los headers `X-RateLimit-*`
+  standardHeaders: true,
+  legacyHeaders: false,
 });
