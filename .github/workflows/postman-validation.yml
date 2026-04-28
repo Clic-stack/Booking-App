@@ -3,7 +3,7 @@ name: "API Contract: Postman Validation"
 on:
   push:
     branches: [ main, master ]
-  # También puedes activarlo manualmente desde GitHub
+  # También se puede activar manualmente desde GitHub
   workflow_dispatch: 
 
 jobs:

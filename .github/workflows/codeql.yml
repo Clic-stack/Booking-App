@@ -24,7 +24,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: 'javascript' # Enfocado en tu stack de Node.js
+          languages: 'javascript' # Enfocado en stack de Node.js
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3

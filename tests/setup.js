@@ -5,8 +5,8 @@ beforeAll(async () => {
         // alter: true sincroniza tablas sin borrar datos
         await sequelize.sync({ alter: true, force: false });
         
-        // OPCIONAL: Aquí podrías insertar un usuario de prueba con código
-        // si tus tests de login fallan porque la tabla está vacía.
+        // OPCIONAL: Aquí se podría insertar un usuario de prueba con código
+        // si los tests de login fallan es porque la tabla está vacía.
         
         console.log('✅ DB conectada y sincronizada para tests');
     } catch (error) {

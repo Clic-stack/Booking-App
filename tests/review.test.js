@@ -3,7 +3,7 @@ import app from '../src/app.js'
 
 let id
 let token
-const EXISTING_HOTEL_ID = 1 // 👈 Confirmado que existe en tu DB
+const EXISTING_HOTEL_ID = 1 
 
 beforeAll(async () => {
     const data = { email: 'pablitopencas@test.com', password: '123456'} 
